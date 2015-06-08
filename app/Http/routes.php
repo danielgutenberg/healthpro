@@ -11,12 +11,11 @@
 |
 */
 
-// Route::resource('/numbers', 'NumberController');
-Route::post('/numbers', ['middleware' => 'filterNumber', 'uses' => 'NumberController@store']);
-Route::put('/numbers/{id}', ['middleware' => 'filterNumber', 'uses' => 'NumberController@update']);
+Route::get('/', 'WelcomeController@index');
 
-Route::post('/users/{id}/numbers', ['middleware' => 'filterNumber', 'uses' => 'UserController@addNumber']);
-Route::delete('/users/{id}/numbers/{numberId}', 'UserController@removeNumber');
+Route::get('home', 'HomeController@index');
 
-Route::post('/locations/{id}/numbers', ['middleware' => 'filterNumber', 'uses' => 'LocationController@addNumber']);
-Route::delete('/locations/{id}/numbers/{numberId}', 'LocationController@removeNumber');
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
