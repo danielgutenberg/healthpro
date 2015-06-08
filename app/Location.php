@@ -1,14 +1,12 @@
-<?php 
-
-namespace App;
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model {
+class Location extends Model {
 
-	public function locations()
+	public function users()
 	{
-	    return $this->belongsToMany('App\Location');
+	    return $this->belongsToMany('App\User');
 	}
 	
 	public function numbers()
